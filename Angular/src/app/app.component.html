@@ -1,0 +1,83 @@
+<div class="image">
+  <mat-toolbar color="primary" style=height:105px;>
+    <mat-toolbar-row>
+      <img src="../../assets/images/logo.png" style="margin-top:44px; height:88px">
+
+      <span style="margin-left: 350px;margin-top: 50px;align-items: center"> &nbsp; &nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;"THEBAGROOM" <br>
+        -A knowledge Platform for Bags-</span>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-card class="example-card">
+    <div class="select">
+
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Select Brand" [(ngModel)]="selectedBrand" (selectionChange)="selectBrand()">
+          <mat-option *ngFor="let brand of brandArray" [value]="brand">{{ brand.bag }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      &nbsp; &nbsp; &nbsp;
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Select Material" [(ngModel)]="selectedMaterial" (selectionChange)="selectMaterial()">
+          <mat-option *ngFor="let material of materialArray" [value]="material">{{ material.bag }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      &nbsp; &nbsp; &nbsp;
+
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Select Size" [(ngModel)]="selectedSize" (selectionChange)="selectSize()">
+          <mat-option *ngFor="let size of sizeArray" [value]="size">{{ size.bag }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp; &nbsp; &nbsp;
+
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Select Colour" [(ngModel)]="selectedColour" (selectionChange)="selectColour()">
+          <mat-option *ngFor="let colour of coloursArray" [value]="colour">{{ colour.bag }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp; &nbsp; &nbsp;
+
+      <!-- <mat-form-field class="example-full-width">
+        <input matInput type="number" placeholder="Price From (Rs.)" [(ngModel)]="value">
+      </mat-form-field>
+      &nbsp; &nbsp;
+      <mat-form-field class="example-marginexample-full-width">
+        <input matInput type="number" placeholder="To(Rs.)" [(ngModel)]="min">
+      </mat-form-field> -->
+      &nbsp; &nbsp; &nbsp;
+      <button mat-raised-button cdkFocusInitial (click)="search()" color="primary">Search for Bags</button>
+    </div>
+    <div class="mat-elevation-z8">
+
+      <table mat-table matSortActive="id" matSortDirection="asc" [dataSource]="bagList" matSort class="full-width-table"
+        aria-label="Elements">
+
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- defaultSupplierBase Column -->
+        <ng-container matColumnDef="item">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Item</th>
+          <td mat-cell *matCellDef="let element"> {{element.item}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Item</th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container> -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+      <mat-paginator [length]="50" [pageSizeOptions]="[15, 30, 45]">
+      </mat-paginator>
+    </div>
+  </mat-card>
+</div>
+<router-outlet></router-outlet>

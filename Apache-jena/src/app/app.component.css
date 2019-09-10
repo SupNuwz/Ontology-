@@ -1,0 +1,32 @@
+.image {
+    height: 100cm;
+    background-size: cover;
+    width: auto;
+
+  }
+
+  .toolbar{
+   margin: center;
+  }
+
+  .example-card {
+    max-width: 100%; 
+    
+    margin-top: 10px;
+    border: 8px solid;
+    
+    /* background-color:lightslategray */
+    
+  }
+  .select{
+    margin-left: 170px;
+    padding: 10px;
+  
+ }
+ .full-width-table {
+  width: 100%;
+}
+
+  
+
+  
